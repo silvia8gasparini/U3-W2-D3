@@ -1,0 +1,30 @@
+html, body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+  }
+
+  .navbar-dark .navbar-nav .nav-link:hover {
+    color: #ffffff !important;
+    font-weight: bold;
+  }
+  
+.poster-wrapper {
+    position: relative;
+    overflow: hidden;
+    border-radius: 0.5rem;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .poster-hover {
+    transition: transform 0.3s ease;
+    cursor: pointer;
+  }
+  
+  .poster-hover:hover {
+    transform: scale(1.08);
+    z-index: 1;
+  }
