@@ -49,49 +49,51 @@ const Section = ({ title, query }) => {
   }
 
   return (
-    <Container fluid className="px-4">
-      <section className="mt-4">
-        <h3 className="text-light mb-3 px-4">{title}</h3>
-        {loading ? (
-          <div className="text-center text-light my-5">
-            <Spinner animation="border" variant="light" /> Loading...
-          </div>
-        ) : error ? (
-          <Error message={`Impossibile caricare "${title}"`} />
-        ) : (
-          <Carousel
-            controls={true}
-            indicators={false}
-            interval={null}
-            className="bg-dark px-4"
-          >
-            {carouselMovies.map((group, index) => (
-              <Carousel.Item key={index}>
-                <Row className="my-1 g-3 justify-content-center">
-                  {group.map((movie) => (
-                    <Col key={movie.imdbID} xs={6} md={4} lg={2}>
-                      <Card className="bg-dark border-0">
-                        <Link to={`/movie-details/${movie.imdbID}`}>
-                          <Card.Img
-                            src={
-                              movie.Poster !== "N/A"
-                                ? movie.Poster
-                                : "https://via.placeholder.com/300x450?text=No+Image"
-                            }
-                            alt={movie.Title}
-                            className="img-fluid poster-hover"
-                          />
-                        </Link>
-                      </Card>
-                    </Col>
-                  ))}
-                </Row>
-              </Carousel.Item>
-            ))}
-          </Carousel>
-        )}
-      </section>
-    </Container>
+    <div>
+      <Container fluid className="px-4">
+        <section className="mt-4">
+          <h3 className="text-light mb-3 px-4">{title}</h3>
+          {loading ? (
+            <div className="text-center text-light my-5">
+              <Spinner animation="border" variant="light" /> Loading...
+            </div>
+          ) : error ? (
+            <Error message={`Impossibile caricare "${title}"`} />
+          ) : (
+            <Carousel
+              controls={true}
+              indicators={false}
+              interval={null}
+              className="bg-dark px-4"
+            >
+              {carouselMovies.map((group, index) => (
+                <Carousel.Item key={index}>
+                  <Row className="my-1 g-3 justify-content-center">
+                    {group.map((movie) => (
+                      <Col key={movie.imdbID} xs={6} md={4} lg={2}>
+                        <Card className="bg-dark border-0">
+                          <Link to={`/movie-details/${movie.imdbID}`}>
+                            <Card.Img
+                              src={
+                                movie.Poster !== "N/A"
+                                  ? movie.Poster
+                                  : "https://via.placeholder.com/300x450?text=No+Image"
+                              }
+                              alt={movie.Title}
+                              className="img-fluid poster-hover"
+                            />
+                          </Link>
+                        </Card>
+                      </Col>
+                    ))}
+                  </Row>
+                </Carousel.Item>
+              ))}
+            </Carousel>
+          )}
+        </section>
+      </Container>
+    </div>
   );
 };
 
